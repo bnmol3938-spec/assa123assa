@@ -3,6 +3,13 @@ import React, { useState } from 'react';
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'DETAILS' | 'ABOUT'>('DETAILS');
 
+  const screenshots = [
+    "https://i.postimg.cc/hPGSQM9N/toca-life-world-mod-apk-all-unlocked.jpg",
+    "https://i.postimg.cc/59g4tDFp/toca-boca-world-free.jpg",
+    "https://i.postimg.cc/WzNsnwxg/resize.webp",
+    "https://i.postimg.cc/ZRFTpM7x/toca-life-world-character-inventory-500x281.jpg"
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -117,11 +124,11 @@ const App: React.FC = () => {
                   <div className="space-y-4 pt-4">
                     <h3 className="text-xl font-bold text-white">Screenshots</h3>
                     <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
-                      {[1,2,3,4].map(i => (
+                      {screenshots.map((url, i) => (
                         <img 
                           key={i} 
-                          src={`https://picsum.photos/seed/${i + 123}/400/225`} 
-                          alt="Screenshot" 
+                          src={url} 
+                          alt={`Screenshot ${i + 1}`} 
                           className="w-64 h-36 rounded-xl border border-slate-800 shadow-lg object-cover flex-shrink-0"
                         />
                       ))}
