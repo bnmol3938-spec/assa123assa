@@ -55,7 +55,7 @@ const App: React.FC = () => {
                   <p className="text-blue-400 font-medium">Toca Boca</p>
                 </div>
 
-                {/* Rating Line - Improved readability through weight and contrast */}
+                {/* Rating Line */}
                 <div className="text-slate-400 text-sm md:text-base flex items-center gap-2 flex-wrap">
                   <span className="text-yellow-400 font-bold">★ 4.6</span>
                   <span className="text-slate-100 font-bold">(78,278)</span>

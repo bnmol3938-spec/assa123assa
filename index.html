@@ -44,9 +44,11 @@
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
@@ -54,53 +56,48 @@
 <body>
     <div id="root"></div>
     
-    <!-- CPA Locker Config - Placed at the bottom for better compatibility -->
+    <!-- React Entry Point -->
+    <script type="module" src="./index.tsx"></script>
+
+    <!-- CPA Locker Config -->
     <script type="text/javascript">
-        console.log("DEBUG: Initializing CPA configuration object.");
+        console.log("DEBUG [CPA]: Initializing configuration object.");
         var tXtnZ_GzV_gFqKTc={"it":4582121,"key":"14e54"};
     </script>
     
     <!-- CPA Locker Main Script -->
     <script src="https://duw03nk63ml3f.cloudfront.net/221cbdc.js" 
-            onload="console.log('DEBUG: CloudFront CPA script loaded successfully.')" 
-            onerror="console.error('DEBUG: Failed to load CloudFront script. Check for CORS/Domain restrictions.')"></script>
+            onload="console.log('DEBUG [CPA]: CloudFront locker script loaded successfully.')" 
+            onerror="console.error('DEBUG [CPA]: Failed to load CloudFront script. This is often caused by domain restrictions or ad-blockers.')"></script>
     
     <script>
         /**
-         * IMPORTANT DEBUGGING NOTE:
-         * If 'typeof _Ht' is not 'function' when running on Netlify, the issue is 
-         * almost certainly DOMAIN WHITELISTING. 
-         * You MUST add your Netlify domain (e.g. yoursitename.netlify.app) 
-         * to the authorized domains list in your CPA network dashboard.
+         * ROBUST CPA TRIGGER SYSTEM
+         * If '_Ht' is not a function when running on your Netlify domain, 
+         * you MUST whitelist your domain in your CPA network's dashboard.
          */
-
-        window.addEventListener('load', function() {
-            console.log("DEBUG: Page fully loaded and scripts evaluated.");
-            console.log("DEBUG: _Ht function availability check: " + (typeof _Ht === 'function' ? 'AVAILABLE' : 'MISSING'));
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
-            console.log("DEBUG: DOM structure ready. Attaching click delegation.");
+            console.log("DEBUG [CPA]: DOM structure ready. Monitoring for clicks on #download-btn.");
             
-            // Using event delegation because React might render the buttons after this script runs
+            // Global click listener for resilience against React re-renders
             document.addEventListener('click', function(e) {
                 var btn = e.target.closest('#download-btn');
                 
                 if (btn) {
-                    console.log("DEBUG: Download button (#download-btn) successfully identified and clicked.");
+                    console.log("DEBUG [CPA]: Click detected on #download-btn.");
                     e.preventDefault();
                     
                     if (typeof _Ht === 'function') {
-                        console.log("DEBUG: Calling _Ht() function to open locker...");
+                        console.log("DEBUG [CPA]: _Ht function found. Launching locker...");
                         try {
                             _Ht();
                         } catch (err) {
-                            console.error("DEBUG: An error occurred inside _Ht() execution:", err);
+                            console.error("DEBUG [CPA]: Runtime error executing _Ht():", err);
                         }
                     } else {
-                        console.error("DEBUG: _Ht is NOT a function! The locker script did not initialize correctly.");
-                        console.warn("ADVICE: Check if your domain is whitelisted in your CPA dashboard. This is the #1 cause for failures on live sites.");
-                        alert("Verification system is initializing. Please refresh the page or disable content blockers.");
+                        console.error("DEBUG [CPA]: _Ht is NOT defined. The script likely blocked initialization for this domain.");
+                        console.warn("DEBUG [CPA]: ACTION REQUIRED: Login to your CPA dashboard and whitelist this domain (e.g., yoursite.netlify.app).");
+                        alert("The verification script is initializing. Please wait a few seconds and try again, or check if an ad-blocker is active.");
                     }
                 }
             });
