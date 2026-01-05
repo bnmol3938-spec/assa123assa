@@ -10,6 +10,13 @@ const App: React.FC = () => {
     "https://i.postimg.cc/ZRFTpM7x/toca-life-world-character-inventory-500x281.jpg"
   ];
 
+  const handleDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof (window as any)._Ht === 'function') {
+      (window as any)._Ht();
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -73,12 +80,14 @@ const App: React.FC = () => {
                 <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
                   <a 
                     href="#" 
+                    onClick={handleDownload}
                     className="px-6 py-3.5 rounded-xl bg-[#38bdf8] hover:opacity-90 text-slate-950 font-bold shadow-lg shadow-sky-500/20 transition-all active:scale-95 text-center flex-1 md:flex-none min-w-[180px]"
                   >
                     Download Android
                   </a>
                   <a 
                     href="#" 
+                    onClick={handleDownload}
                     className="px-6 py-3.5 rounded-xl bg-[#4ade80] hover:opacity-90 text-slate-950 font-bold shadow-lg shadow-green-500/20 transition-all active:scale-95 text-center flex-1 md:flex-none min-w-[180px]"
                   >
                     Download iOS / iPad
