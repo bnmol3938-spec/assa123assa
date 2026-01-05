@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
@@ -55,14 +56,14 @@ const App: React.FC = () => {
                   <p className="text-blue-400 font-medium">Toca Boca</p>
                 </div>
 
-                {/* Rating Line - Enhanced Contrast and Weight */}
-                <div className="text-slate-100 font-bold text-sm md:text-base flex items-center gap-2 flex-wrap">
-                  <span className="text-yellow-400">★ 4.6</span>
-                  <span className="text-slate-400 font-medium">(78,278)</span>
+                {/* Rating Line - Improved readability through weight and contrast */}
+                <div className="text-slate-400 text-sm md:text-base flex items-center gap-2 flex-wrap">
+                  <span className="text-yellow-400 font-bold">★ 4.6</span>
+                  <span className="text-slate-100 font-bold">(78,278)</span>
                   <span className="text-slate-600">—</span>
-                  <span>50M+ downloads</span>
+                  <span className="text-slate-100 font-bold">50M+ downloads</span>
                   <span className="text-slate-600">—</span>
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center gap-1 font-bold text-slate-100">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="3">
                       <path d="M20 6L9 17L4 12" />
                     </svg>
@@ -71,11 +72,14 @@ const App: React.FC = () => {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <button className="px-6 py-3 bg-[#2979ff] hover:opacity-90 text-white font-semibold rounded-xl transition-all border border-slate-700">
-                    Download Android
-                  </button>
-                  <button className="px-6 py-3 bg-[#2ecc71] hover:opacity-90 text-white font-semibold rounded-xl transition-all border border-slate-700">
-                    Download iOS / iPad
+                  <button className="download-arrow">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"
+                            stroke="#3b82f6"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"/>
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -116,11 +120,11 @@ const App: React.FC = () => {
                     </div>
                     <div className="bg-slate-900/40 p-4 rounded-2xl border border-slate-800/50">
                       <p className="text-xs text-slate-500 font-bold uppercase mb-1">OS</p>
-                      <p className="text-slate-200">Android / iOS</p>
+                      <p className="text-slate-200">Android / iOS / iPad</p>
                     </div>
                   </div>
 
-                  {/* Screenshots Repositioned Here */}
+                  {/* Screenshots */}
                   <div className="space-y-4 pt-4">
                     <h3 className="text-xl font-bold text-white">Screenshots</h3>
                     <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
@@ -168,7 +172,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Sidebar - Empty */}
+          {/* Right Column */}
           <div className="space-y-8">
           </div>
 
