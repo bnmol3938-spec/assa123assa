@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
@@ -17,7 +16,7 @@ const App: React.FC = () => {
       <header className="bg-slate-900/50 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="text-2xl font-bold tracking-tight text-white">
-            corlad.com
+            Corlad
           </div>
           <div className="flex items-center gap-6">
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
@@ -71,16 +70,19 @@ const App: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <button className="download-arrow">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"
-                            stroke="#3b82f6"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"/>
-                    </svg>
-                  </button>
+                <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
+                  <a 
+                    href="#" 
+                    className="px-6 py-3.5 rounded-xl bg-[#38bdf8] hover:opacity-90 text-slate-950 font-bold shadow-lg shadow-sky-500/20 transition-all active:scale-95 text-center flex-1 md:flex-none min-w-[180px]"
+                  >
+                    Download Android
+                  </a>
+                  <a 
+                    href="#" 
+                    className="px-6 py-3.5 rounded-xl bg-[#4ade80] hover:opacity-90 text-slate-950 font-bold shadow-lg shadow-green-500/20 transition-all active:scale-95 text-center flex-1 md:flex-none min-w-[180px]"
+                  >
+                    Download iOS / iPad
+                  </a>
                 </div>
               </div>
             </div>
